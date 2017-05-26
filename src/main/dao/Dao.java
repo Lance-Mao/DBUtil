@@ -21,6 +21,14 @@ public class Dao {
         QueryRunner queryRunner = new QueryRunner();
 
         String sql = "select * from tbdemo limit 2";
+        /**
+         * rsh参数：这是一个ResultSetHandler类型，一般都是创建一个该类型的子类对象然后传进去，
+         * 该类型有五个常用子类，而传递的子类对象会决定query这个方法的返回值。五个常用子类对象分别是：
+         * BeanHandler、BeanListHandler、MapHandler、MapListHandler、ScalarHandler。传递这五个子类对
+         * 象后query的返回值分别是：一个JavaBean对象、一个装有多个JavaBean对象的List集合对象、一个装有一
+         * 行结果集的Map对象（也就是一个Map，Map装着的是一行结果集）、一个装有多个一行结果集的Map的List集合对象
+         * （也就是List里有多个Map，每个Map都是一行结果集）、一个Object类型（这种一般运用在查询结果只有一行一列的情况）
+         */
         try {
             System.out.println("使用map处理单行记录。");
             Map<String, Object> map = queryRunner.query(conn, sql, new MapHandler(), (Object[]) null);
