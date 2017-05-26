@@ -44,7 +44,7 @@ public class Dao {
 
             System.out.println("使用map处理多行记录！");
             String sql2 = "select * from tbdemo limit 3";
-            List<Map<String, Object>> list = queryRunner.query(conn, sql2, new MapListHandler(), (Object[]) null);
+            List<Map<String,Object>> list = queryRunner.query(conn, sql2, new MapListHandler(), (Object[]) null);
             //MapListHandler 类  （实现ResultSetHandler 接口）把从数据库中查询出的记录 都 放到List  集合当中，
             // List集合中每一个对象都是Map类型，可以根据这条记录的字段名读出相对应的值.
 
